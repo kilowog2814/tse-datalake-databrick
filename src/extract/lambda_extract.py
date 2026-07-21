@@ -1,5 +1,5 @@
 import os
-from download import DownloadTse
+from .download import DownloadTse
 from datetime import datetime
 from zoneinfo import ZoneInfo
 
@@ -7,13 +7,7 @@ import boto3
 
 
 def lambda_handler(event, context):
-    """
-    Espera receber:
-    {
-        "url": "https://site.com/arquivo.csv",
-        "folder": "landing"
-    }
-    """
+
     s3 = boto3.client("s3")
 
     agora = datetime.now(ZoneInfo("America/Sao_Paulo"))
