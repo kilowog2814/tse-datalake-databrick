@@ -1,5 +1,5 @@
 import os
-from extract.download import DownloadTse
+from download import DownloadTse
 from datetime import datetime
 from zoneinfo import ZoneInfo
 
