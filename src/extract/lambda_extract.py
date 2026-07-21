@@ -21,7 +21,7 @@ def lambda_handler(event, context):
 
         files = dados_tse.download_ano([2024])
 
-        folder = event.get("folder", "landing")
+        folder = "landing"
 
         for file in files:
             s3_key = f"{folder}/{agora:%Y/%m/%d}/{file['filename']}"
