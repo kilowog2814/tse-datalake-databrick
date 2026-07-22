@@ -21,11 +21,7 @@ def lambda_handler(event, context):
 
     agora = datetime.now(ZoneInfo("America/Sao_Paulo"))
 
-    bucket_name = (
-        event.get("BUCKET_NAME")
-        if event.get("BUCKET_NAME")
-        else os.environ["BUCKET_NAME"]
-    )
+    bucket_name = os.environ["BUCKET_NAME"]
 
     anos = event.get("anos", 2024)
 
