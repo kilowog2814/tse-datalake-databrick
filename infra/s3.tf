@@ -1,4 +1,4 @@
-resource "aws_s3_bucket" "tse-datalake-portifolio" {
+resource "aws_s3_bucket" "tse_datalake_portifolio" {
   bucket = var.bucket
   acl    = "private"
 

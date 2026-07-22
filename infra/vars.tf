@@ -8,3 +8,4 @@ variable "lambda_function" {}
 variable "timeout" {}
 variable "memory_size" {}
 variable "ecr_repository" {}
+variable "bronze_lambda_function" {}

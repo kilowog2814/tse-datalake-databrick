@@ -65,8 +65,8 @@ resource "aws_iam_policy" "lambda" {
           "s3:ListBucket"
         ]
         Resource = [
-          aws_s3_bucket.tse-datalake-portifolio.arn,
-          "${aws_s3_bucket.tse-datalake-portifolio.arn}/*"
+          aws_s3_bucket.tse_datalake_portifolio.arn,
+          "${aws_s3_bucket.tse_datalake_portifolio.arn}/*"
         ]
       }
     ]
@@ -82,6 +82,23 @@ resource "aws_iam_role_policy_attachment" "lambda" {
 
 resource "aws_lambda_function" "lambda" {
   function_name = var.lambda_function
+
+  package_type = "Image"
+
+  image_uri = "${aws_ecr_repository.lambda.repository_url}:latest"
+
+  role = aws_iam_role.lambda.arn
+
+  timeout     = var.timeout
+  memory_size = var.memory_size
+
+  depends_on = [
+    aws_ecr_repository_policy.lambda
+  ]
+}
+
+resource "aws_lambda_function" "bronze_lambda" {
+  function_name = var.bronze_lambda_function
 
   package_type = "Image"
 
