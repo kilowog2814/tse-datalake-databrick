@@ -1,5 +1,5 @@
 import os
-from .unzip import UnzipFiles
+from .unzip.UnzipFiles import zipfile
 
 
 def lambda_handler(event, context):

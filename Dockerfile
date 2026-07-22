@@ -14,6 +14,3 @@ RUN poetry config virtualenvs.create false \
 
 # Copia o código da aplicação
 COPY src ./src
-
-# Handler da Lambda
-CMD ["src.extract.lambda_extract.lambda_handler"]
